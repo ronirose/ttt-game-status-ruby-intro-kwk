@@ -137,7 +137,7 @@ describe "./lib/game_status.rb" do
       expect(over?(board)).to be_falsey
     end
   end
-
+### NEED TO FIX WINNER ###
   describe '#winner' do
     it 'return X when X won' do
       board = ["X", " ", " ", " ", "X", " ", " ", " ", "X"]
@@ -150,6 +150,7 @@ describe "./lib/game_status.rb" do
 
       expect(winner(board)).to eq("O")
     end
+  #### NEED TO FIX WINNER ^^####
 
     it 'returns nil when no winner' do
       board = ["X", "O", " ", " ", " ", " ", " ", "O", "X"]

@@ -37,7 +37,42 @@ def won?(board)
 end
 
 
+def winner(board)
+  win_combo = won?(board)
+  if win_combo == false
+    return nil
+  elsif board[win_combo[0]] == "X" && board[win_combo[1]] == "X" && board[win_combo[2]] == "X"
+    return "X"
+  elsif  board[win_combo[0]] == "O" && board[win_combo[1]] == "O" && board[win_combo[2]] == "O"
+    return "O"
+  end
+end
+
 
 def full?(board)
-  board.any?{|cell| cell == "" || cell == " "}
+  board.all?{|cell| cell != " "}
+end
+
+
+def draw?(board)
+  if full?(board)
+    if won?(board)
+      return false
+    else
+      return true
+    end
+  else
+    return false
+  end
+end
+
+
+def over?(board)
+  if won?(board)
+    return true
+  elsif full?(board)
+    return true
+  elsif draw?(board)
+    return true
+  end
 end
